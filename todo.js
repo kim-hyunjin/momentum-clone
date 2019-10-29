@@ -23,7 +23,7 @@ function saveToDos() {
 
 function paintToDo(currentValue) {
   const li = document.createElement("li");
-  const delBtn = document.createElement("button");
+  const delBtn = document.createElement("div");
   delBtn.innerText = "❌";
   delBtn.addEventListener("click", deleteToDo);
   const span = document.createElement("span");
@@ -44,7 +44,11 @@ function paintToDo(currentValue) {
 function handleSubmit(event) {
   event.preventDefault();
   const currentValue = toDoInput.value;
-  paintToDo(currentValue);
+  if (toDos.length < 10) {
+    paintToDo(currentValue);
+  } else {
+    alert("list maximum : 10");
+  }
   toDoInput.value = "";
 }
 
