@@ -56,7 +56,7 @@ function paintToDo(todo) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  if (toDos.length <= 7) {
+  if (toDos.length < 7) {
     paintToDo(toDoInput.value);
   } else {
     alert("list maximum : 7");
