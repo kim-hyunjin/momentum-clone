@@ -1,2 +1,1 @@
-# Momentum-clone
- Chrome Extension 'Momentum' clone coding.
+# Chrome Extension 'Momentum' clone

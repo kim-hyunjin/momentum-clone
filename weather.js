@@ -3,12 +3,11 @@ const weatherState = weather.querySelector(".js-state");
 const weatherTemp = weather.querySelector(".js-temp");
 const weatherPlace = weather.querySelector(".js-place");
 
-const API_KEY = "adf217d74c2a22ead21b95c060330baa";
+const API_KEY = "44691c4927cf5659e3b6fd5d4cca0c32";
 const COORD = "coordinates";
-const w = "a";
 
 function paintState(state) {
-  switch (w) {
+  switch (state) {
     case "Clear":
       weatherState.innerHTML = `<i class="far fa-sun"></i>`;
       break;
@@ -37,10 +36,10 @@ function getWeather(lat, lon) {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
   )
-    .then(function(response) {
+    .then(function (response) {
       return response.json();
     })
-    .then(function(json) {
+    .then(function (json) {
       const temperature = json.main.temp;
       weatherTemp.innerHTML = temperature.toFixed(1) + "º";
       const state = json.weather[0].main;
@@ -59,7 +58,7 @@ function handlePositionSuccess(position) {
   const longitude = position.coords.longitude;
   const coordObj = {
     latitude: latitude,
-    longitude: longitude
+    longitude: longitude,
   };
   saveCoord(coordObj);
   getWeather(latitude, longitude);
